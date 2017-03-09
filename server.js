@@ -6,12 +6,14 @@ console.log("Base URL for embeds that require hosted renders:", CONFIG.baseAppUr
 
 var path = require('path');
 var express = require('express');
+var cors = require('cors');
 
 var NotFound = sysUtils.NotFound;
 
 var app = express();
 
 app.use(express.bodyParser());
+app.use(cors());
 app.set('view engine', 'ejs');
 
 if (CONFIG.allowedOrigins) {
@@ -34,7 +36,7 @@ app.disable( 'x-powered-by' );
 app.use(function(req, res, next) {
     res.setHeader('X-Powered-By', 'Iframely');
     next();
-}); 
+});
 
 app.use(sysUtils.cacheMiddleware);
 
