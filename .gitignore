@@ -13,3 +13,8 @@ node_modules2
 lib/new/test.html
 
 lib/new/test.js
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
